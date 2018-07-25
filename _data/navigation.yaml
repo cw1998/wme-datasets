@@ -1,0 +1,7 @@
+navigation:
+    - title: Home
+      url: /
+    - title: Resources
+      url: /resources.html
+    - title: Instructions
+      url: /instructions.html

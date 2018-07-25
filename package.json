@@ -1,0 +1,21 @@
+{
+  "name": "wme-ireland-townlands",
+  "version": "1.0.0",
+  "description": "wme-ireland-townlands",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/christopher_wilkinson/wme-ireland-townlands.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/christopher_wilkinson/wme-ireland-townlands#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-util": "^3.0.8"
+  },
+  "dependencies": {
+    "govuk-frontend": "^1.1.1"
+  }
+}

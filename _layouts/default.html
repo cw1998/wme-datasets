@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+
+    {% include head.html %}
+
+<body class="govuk-template__body ">
+
+    {% include header.html %}
+
+    <script>
+    document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+    </script>
+
+    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    
+    <div class="govuk-width-container">
+        <div class="govuk-phase-banner">
+            <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+            Work in progress
+            </strong>
+                <span class="govuk-phase-banner__text">
+                This site is still being built, so content may be missing, broken, incorrect or removed in the future.
+                </span>
+            </p>
+        </div>
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+            {{ content }}
+        </main>
+    </div>
+    
+    {% include footer.html %}
+
+</body>
+
+</html>
