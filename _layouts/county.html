@@ -7,15 +7,28 @@ layout: default
             <h1 class="govuk-heading-xl">{{ page.title }}</h1>
         {% endif %}
         {{ content }}
+        {% assign county_image_url = 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Island_of_Ireland_location_map_' | append: page.county | append: '.svg' %}
+        <img width="256" src="{{ county_image_url }}">
     </div>
 
     <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m" id="subsection-title">
-            Counties
+            Other Counties
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
             <ul class="govuk-list govuk-!-font-size-16">
-                [county content coming]
+                {% for county in site.data.counties.counties %}
+                    <li>
+                        {% assign county_url = '/counties/' | append: county | downcase | append: '.html' %}
+                        {% if page.url == county_url %}
+                        
+                        <strong>{{ county | capitalize }}</strong>
+                        {% else %}
+                        <a href="{{ county | downcase }}">{{ county | capitalize }}</a>
+                        {% endif %}
+                        
+                    </li>
+                {% endfor %}
             </ul>
         </nav>
         <h2 class="govuk-heading-m" id="subsection-title">
