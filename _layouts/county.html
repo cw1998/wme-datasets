@@ -1,19 +1,29 @@
 ---
 layout: default
 ---
+{% unless page.index %}
+<a href="/counties/" class="govuk-back-link">Back</a>
+{% endunless %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         {% if page.title %}
-            <h1 class="govuk-heading-xl">{{ page.title }}</h1>
+            
+            <h1 class="govuk-heading-xl">{% unless page.index %}
+                <span class="govuk-caption-xl">Counties</span>
+            {% endunless %}
+            {{ page.title }}
+        </h1>
         {% endif %}
         {{ content }}
-        {% assign county_image_url = 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Island_of_Ireland_location_map_' | append: page.county | append: '.svg' %}
+        {% unless page.index %}
+        something
+        {% endunless %}
         <img width="256" src="{{ county_image_url }}">
     </div>
 
     <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m" id="subsection-title">
-            Other Counties
+            {% unless page.index %}Other {% endunless %}Counties
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
             <ul class="govuk-list govuk-!-font-size-16">
