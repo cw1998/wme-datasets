@@ -2,3 +2,23 @@
 $govuk-global-styles: true;
 
 @import "../node_modules/govuk-frontend/all";
+
+.govuk-button--download {
+    @include govuk-typography-weight-bold;
+    @include govuk-typography-responsive($size: 24, $override-line-height: 1);
+
+    min-height: auto;
+    padding-top: govuk-spacing(2) - $govuk-border-width-form-element;
+    padding-right: govuk-spacing(7);
+    padding-bottom: govuk-spacing(2) - $govuk-border-width-form-element;
+    padding-left: govuk-spacing(3);
+
+    background-image: govuk-image-url("icon-download-small.png");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+
+    @include govuk-device-pixel-ratio {
+      background-image: govuk-image-url("icon-download-2x.png");
+      background-size: 30px 19px;
+    }
+  }

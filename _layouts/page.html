@@ -21,7 +21,7 @@ layout: default
                         {% if page.url == item.url %}
                         <strong>{{ item.title }}</strong>
                         {% else %}
-                        <a href="{{ item.url }}" class="govuk-link">{{ item.title }}</a>
+                        <a href="{{ item.url }}" class="govuk-link govuk-link--no-visited-state">{{ item.title }}</a>
                         {% endif %}
                     </li>
                 {% endfor %}
