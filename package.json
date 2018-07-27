@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/christopher_wilkinson/wme-ireland-townlands#readme",
+  "homepage": "https://waze.cw1998.uk",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
@@ -16,6 +16,6 @@
     "gulp-util": "^3.0.8"
   },
   "dependencies": {
-    "govuk-frontend": "^1.1.1"
+    "govuk-frontend": "^1.2.0"
   }
 }
