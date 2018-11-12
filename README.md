@@ -27,7 +27,7 @@ To build this project you will need:
 * Jekyll
 
 ## Running the project
-You must first install the required Node modules by running `npm install` or `npm install -g`.
+You must first install the required Node modules by running `npm install` or `npm install -g` and required Gems using `bundle update`.
 
 To run the project, run `gulp` from the project root. If you are on Windows, you will need to tweak the gulpfile slightly to allow Jekyll to execute.
 Change `jekyll` to `jekyll.bat`.
