@@ -7,35 +7,36 @@ layout: default
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         {% if page.title %}
-            
-            <h1 class="govuk-heading-xl">{% unless page.index %}
-                <span class="govuk-caption-xl">Counties</span>
+
+        <h1 class="govuk-heading-xl">{% unless page.index %}
+            <span class="govuk-caption-xl">Counties</span>
             {% endunless %}
             {{ page.title }}
         </h1>
         {% endif %}
         {{ content }}
         {% unless page.index %}
-        
+
         <h2 class="govuk-heading-l">Ungeneralised</h2>
-        <a href="https://waze.cw1998.uk/full/counties_ungeneralised/townlands_ungeneralised_{{ page.county | downcase }}.geojson" class="govuk-button govuk-button--download">Full</a>
-        <a href="https://waze.cw1998.uk/reduced/counties_ungeneralised/townlands_ungeneralised_reduced_{{ page.county | downcase }}.geojson" class="govuk-button govuk-button--download">Reduced</a>
-        <p class="govuk-caption-m">
-            <em>On some browsers, you may need to right click on these buttons and click "Save link as" or "Save target as"</em>
-        </p>
+        <a href="https://waze.cw1998.uk/full/counties_ungeneralised/townlands_ungeneralised_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Full</a>
+        <a href="https://waze.cw1998.uk/reduced/counties_ungeneralised/townlands_ungeneralised_reduced_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Reduced</a>
 
         <h2 class="govuk-heading-l">Generalised (20m)</h2>
-        <a href="https://waze.cw1998.uk/full/counties_generalised_20m/townlands_generalised_20m_{{ page.county | downcase }}.geojson" class="govuk-button govuk-button--download">Full</a>
-        <a href="https://waze.cw1998.uk/reduced/counties_generalised_20m/townlands_generalised_20m_reduced_{{ page.county | downcase }}.geojson" class="govuk-button govuk-button--download">Reduced</a>
-        <p class="govuk-caption-m">
-            <em>On some browsers, you may need to right click on these buttons and click "Save link as" or "Save target as"</em>
-        </p>
+        <a href="https://waze.cw1998.uk/full/counties_generalised_20m/townlands_generalised_20m_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Full</a>
+        <a href="https://waze.cw1998.uk/reduced/counties_generalised_20m/townlands_generalised_20m_reduced_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Reduced</a>
 
         <h2 class="govuk-heading-l">Generalised (50m)</h2>
-        <a href="https://waze.cw1998.uk/full/counties_generalised_50m/townlands_generalised_50m_{{ page.county | downcase }}.geojson" class="govuk-button govuk-button--download">Full</a>
-        <a href="https://waze.cw1998.uk/reduced/counties_generalised_50m/townlands_generalised_50m_reduced_{{ page.county | downcase }}.geojson" class="govuk-button govuk-button--download">Reduced</a>
+        <a href="https://waze.cw1998.uk/full/counties_generalised_50m/townlands_generalised_50m_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Full</a>
+        <a href="https://waze.cw1998.uk/reduced/counties_generalised_50m/townlands_generalised_50m_reduced_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Reduced</a>
         <p class="govuk-caption-m">
-            <em>On some browsers, you may need to right click on these buttons and click "Save link as" or "Save target as"</em>
+            <em>On some browsers, you may need to right click on these buttons and click "Save link as" or "Save target
+                as"</em>
         </p>
 
         {% endunless %}
@@ -49,15 +50,16 @@ layout: default
         <nav role="navigation" aria-labelledby="subsection-title">
             <ul class="govuk-list govuk-!-font-size-16">
                 {% for county in site.data.counties.counties %}
-                    <li>
-                        {% assign county_url = '/counties/' | append: county | downcase | append: '.html' %}
-                        {% if page.url == county_url %}
-                        <strong>{{ county | capitalize }}</strong>
-                        {% else %}
-                        <a href="{{ county | downcase }}.html" class="govuk-link govuk-link--no-visited-state">{{ county | capitalize }}</a>
-                        {% endif %}
-                        
-                    </li>
+                <li>
+                    {% assign county_url = '/counties/' | append: county | downcase | append: '.html' %}
+                    {% if page.url == county_url %}
+                    <strong>{{ county | capitalize }}</strong>
+                    {% else %}
+                    <a href="{{ county | downcase }}.html" class="govuk-link govuk-link--no-visited-state">{{ county |
+                        capitalize }}</a>
+                    {% endif %}
+
+                </li>
                 {% endfor %}
             </ul>
         </nav>
@@ -67,13 +69,13 @@ layout: default
         <nav role="navigation" aria-labelledby="subsection-title">
             <ul class="govuk-list govuk-!-font-size-16">
                 {% for item in site.data.navigation.navigation %}
-                    <li>
-                        {% if page.url == item.url %}
-                        <strong>{{ item.title }}</strong>
-                        {% else %}
-                        <a href="{{ item.url }}">{{ item.title }}</a>
-                        {% endif %}
-                    </li>
+                <li>
+                    {% if page.url == item.url %}
+                    <strong>{{ item.title }}</strong>
+                    {% else %}
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                    {% endif %}
+                </li>
                 {% endfor %}
             </ul>
         </nav>
