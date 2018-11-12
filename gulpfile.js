@@ -9,10 +9,10 @@ const cssFiles = '_gulp/**/*.?(s)css';
 const iconFiles = 'node_modules/govuk-frontend/assets/images/icon*';
 
 gulp.task('css', () => {
-  gulp.src(cssFiles)
-    .pipe(sass())
-    .pipe(concat('main.css'))
-    .pipe(gulp.dest('assets'));
+    gulp.src(cssFiles)
+        .pipe(sass())
+        .pipe(concat('main.css'))
+        .pipe(gulp.dest('assets'));
 });
 
 gulp.task('icons', () => {
@@ -20,19 +20,19 @@ gulp.task('icons', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(cssFiles, ['css']);
+    gulp.watch(cssFiles, ['css']);
 });
 
 gulp.task('jekyll', () => {
-    const jekyll = child.spawn('jekyll.bat', ['serve',
+    const jekyll = child.spawn('jekyll', ['serve',
         '--watch',
         '--drafts'
     ]);
 
     const jekyllLogger = (buffer) => {
         buffer.toString()
-        .split(/\n/)
-        .forEach((message) => gutil.log('Jekyll: ' + message));
+            .split(/\n/)
+            .forEach((message) => gutil.log('Jekyll: ' + message));
     };
 
     jekyll.stdout.on('data', jekyllLogger);
