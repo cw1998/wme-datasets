@@ -1,0 +1,7 @@
+version: "3.3"
+
+services:
+  wme-datasets:
+    build: .
+    ports:
+      - 8000:80

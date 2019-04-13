@@ -1,0 +1,3 @@
+[submodule "townland-clipper"]
+	path = townland-clipper
+	url = git@github.com:cw1998/townland-clipper.git
