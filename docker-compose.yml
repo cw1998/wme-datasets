@@ -4,4 +4,4 @@ services:
   wme-datasets:
     build: .
     ports:
-      - 8000:80
+      - 80:80

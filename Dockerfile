@@ -9,6 +9,28 @@ RUN wget -O generalised_50m.geojson  http://data-osi.opendata.arcgis.com/dataset
 RUN wget -O generalised_20m.geojson  http://data-osi.opendata.arcgis.com/datasets/1c895c5fa0bb471292891c0998e25906_2.geojson
 RUN wget -O ungeneralised.geojson    http://data-osi.opendata.arcgis.com/datasets/1c895c5fa0bb471292891c0998e25906_3.geojson
 
+## Build Townland files
+FROM python:3 as python
+
+WORKDIR /workdir
+
+COPY townland-clipper/townland-clipper.py ./
+COPY --from=townland-data * ./
+
+RUN pip3 install ijson simplejson
+
+RUN mkdir generalised_100m && python3 townland-clipper.py --all --output generalised_100m generalised_100m.geojson
+RUN python3 townland-clipper.py --all --reduce --output generalised_100m generalised_100m.geojson
+
+RUN mkdir generalised_50m && python3 townland-clipper.py --all --output generalised_50m generalised_50m.geojson
+RUN python3 townland-clipper.py --all --reduce --output generalised_50m generalised_50m.geojson
+
+RUN mkdir generalised_20m && python3 townland-clipper.py --all --output generalised_20m generalised_20m.geojson
+RUN python3 townland-clipper.py --all --reduce --output generalised_20m generalised_20m.geojson
+
+RUN mkdir ungeneralised && python3 townland-clipper.py --all --output ungeneralised ungeneralised.geojson
+RUN python3 townland-clipper.py --all --reduce --output ungeneralised ungeneralised.geojson
+
 
 # Build CSS
 FROM node:8 AS node
@@ -29,36 +51,15 @@ FROM ruby as jekyll
 
 WORKDIR /workdir
 
-COPY --from=node /workdir ./
 COPY Gemfile* ./
 
 RUN bundle install
+
+COPY --from=node /workdir ./
+COPY . ./
+
+RUN bash generate_county_collection.sh
 RUN jekyll build
-
-# Build Townland files
-FROM python:3 as python
-
-WORKDIR /workdir
-
-COPY townland-clipper/townland-clipper.py ./
-COPY --from=townland-data * ./
-
-RUN pip3 install ijson simplejson
-
-RUN mkdir generalised_100m && python3 townland-clipper.py --county cavan --reduce --output generalised_100m generalised_100m.geojson
-
-# RUN mkdir generalised_100m && python3 townland-clipper.py --all --output generalised_100m generalised_100m.geojson
-# RUN python3 townland-clipper.py --all --reduce --output generalised_100m generalised_100m.geojson
-
-# RUN mkdir generalised_50m && python3 townland-clipper.py --all --output generalised_50m generalised_50m.geojson
-# RUN python3 townland-clipper.py --all --reduce --output generalised_50m generalised_50m.geojson
-
-# RUN mkdir generalised_20m && python3 townland-clipper.py --all --output generalised_20m generalised_20m.geojson
-# RUN python3 townland-clipper.py --all --reduce --output generalised_20m generalised_20m.geojson
-
-# RUN mkdir ungeneralised && python3 townland-clipper.py --all --output ungeneralised ungeneralised.geojson
-# RUN python3 townland-clipper.py --all --reduce --output ungeneralised ungeneralised.geojson
-
 
 # Nginx server
 FROM nginx
@@ -67,7 +68,6 @@ EXPOSE 80
 
 WORKDIR /usr/share/nginx/html
 
-COPY --from=python /workdir/generalised_100m ./
-
-# COPY --from=python generalised_100m generalised_50m generalised_20m ungeneralised ./
-COPY --from=jekyll /workdir ./
+COPY --from=python generalised_100m generalised_50m generalised_20m ungeneralised ./
+COPY nginx-default.conf /etc/nginx/conf.d/default.conf
+COPY --from=jekyll /workdir/_site ./

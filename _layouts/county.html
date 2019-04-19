@@ -18,22 +18,29 @@ layout: default
         {% unless page.index %}
 
         <h2 class="govuk-heading-l">Ungeneralised</h2>
-        <a href="https://waze.cw1998.uk/full/counties_ungeneralised/townlands_ungeneralised_{{ page.county | downcase }}.geojson"
+        <a href="/ungeneralised/townlands_ungeneralised_{{ page.county | downcase }}.geojson"
             class="govuk-button govuk-button--download">Full</a>
-        <a href="https://waze.cw1998.uk/reduced/counties_ungeneralised/townlands_ungeneralised_reduced_{{ page.county | downcase }}.geojson"
+        <a href="/ungeneralised/townlands_ungeneralised_reduced_{{ page.county | downcase }}.geojson"
             class="govuk-button govuk-button--download">Reduced</a>
 
         <h2 class="govuk-heading-l">Generalised (20m)</h2>
-        <a href="https://waze.cw1998.uk/full/counties_generalised_20m/townlands_generalised_20m_{{ page.county | downcase }}.geojson"
+        <a href="/generalised_20m/townlands_generalised_20m_{{ page.county | downcase }}.geojson"
             class="govuk-button govuk-button--download">Full</a>
-        <a href="https://waze.cw1998.uk/reduced/counties_generalised_20m/townlands_generalised_20m_reduced_{{ page.county | downcase }}.geojson"
+        <a href="/generalised_20m/townlands_generalised_20m_reduced_{{ page.county | downcase }}.geojson"
             class="govuk-button govuk-button--download">Reduced</a>
 
         <h2 class="govuk-heading-l">Generalised (50m)</h2>
-        <a href="https://waze.cw1998.uk/full/counties_generalised_50m/townlands_generalised_50m_{{ page.county | downcase }}.geojson"
+        <a href="/generalised_50m/townlands_generalised_50m_{{ page.county | downcase }}.geojson"
             class="govuk-button govuk-button--download">Full</a>
-        <a href="https://waze.cw1998.uk/reduced/counties_generalised_50m/townlands_generalised_50m_reduced_{{ page.county | downcase }}.geojson"
+        <a href="/generalised_50m/townlands_generalised_50m_reduced_{{ page.county | downcase }}.geojson"
             class="govuk-button govuk-button--download">Reduced</a>
+
+        <h2 class="govuk-heading-l">Generalised (100m)</h2>
+        <a href="/generalised_100m/townlands_generalised_20m_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Full</a>
+        <a href="/generalised_100m/townlands_generalised_20m_reduced_{{ page.county | downcase }}.geojson"
+            class="govuk-button govuk-button--download">Reduced</a>
+
         <p class="govuk-caption-m">
             <em>On some browsers, you may need to right click on these buttons and click "Save link as" or "Save target
                 as"</em>
