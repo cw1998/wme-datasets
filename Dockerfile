@@ -14,10 +14,11 @@ FROM python:3 as python
 
 WORKDIR /workdir
 
-COPY townland-clipper/townland-clipper.py ./
 COPY --from=townland-data * ./
 
 RUN pip3 install ijson simplejson
+
+COPY townland-clipper/townland-clipper.py ./
 
 RUN mkdir generalised_100m && python3 townland-clipper.py --all --output generalised_100m generalised_100m.geojson
 RUN python3 townland-clipper.py --all --reduce --output generalised_100m generalised_100m.geojson
