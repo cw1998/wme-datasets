@@ -69,6 +69,6 @@ EXPOSE 80
 
 WORKDIR /usr/share/nginx/html
 
-COPY --from=python /workdir/generalised_100m /workdir/generalised_50m /workdir/generalised_20m /workdir/ungeneralised ./
+COPY --from=python /workdir/*generalised* .
 COPY nginx-default.conf /etc/nginx/conf.d/default.conf
 COPY --from=jekyll /workdir/_site ./
