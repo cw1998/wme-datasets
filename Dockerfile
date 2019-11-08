@@ -20,16 +20,18 @@ COPY townland-clipper/ ./
 
 RUN npm install
 
-RUN mkdir generalised_100m && node . --output=generalised_100m --input=generalised_100m.geojson
+RUN mkdir generalised_100m generalised_50m generalised_20m ungeneralised
+
+RUN node . --output=generalised_100m --input=generalised_100m.geojson
 RUN node . --reduce --output=generalised_100m --input=generalised_100m.geojson
 
-RUN mkdir generalised_50m && node . --output=generalised_50m generalised_50m.geojson
+RUN node . --output=generalised_50m --input=generalised_50m.geojson
 RUN node . --reduce --output=generalised_50m --input=generalised_50m.geojson
 
-RUN mkdir generalised_20m && node . --output=generalised_20m generalised_20m.geojson
+RUN node . --output=generalised_20m --input=generalised_20m.geojson
 RUN node . --reduce --output=generalised_20m --input=generalised_20m.geojson
 
-RUN mkdir ungeneralised && node . --output=ungeneralised ungeneralised.geojson
+RUN node . --output=ungeneralised --input=ungeneralised.geojson
 RUN node . --reduce --output=ungeneralised --input=ungeneralised.geojson
 
 
