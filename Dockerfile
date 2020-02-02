@@ -31,8 +31,8 @@ RUN node . --reduce --output=generalised_50m --input=generalised_50m.geojson
 RUN node . --output=generalised_20m --input=generalised_20m.geojson
 RUN node . --reduce --output=generalised_20m --input=generalised_20m.geojson
 
-RUN node . --output=ungeneralised --input=ungeneralised.geojson
-RUN node . --reduce --output=ungeneralised --input=ungeneralised.geojson
+RUN node --max-old-space-size=4096 . --output=ungeneralised --input=ungeneralised.geojson
+RUN node --max-old-space-size=4096 . --reduce --output=ungeneralised --input=ungeneralised.geojson
 
 
 # Build CSS

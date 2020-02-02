@@ -1,58 +1,84 @@
 ---
 layout: county
-title: County Townland Geometry Data Sets
+title: County Townland Geometry Datasets
 index: true
+breadcrumbs:
+  - text: Home
+    link: /
+  - text: Resources
+    link: /resources.html
 ---
+
 <p class="govuk-body">
-    Start off by navigating to a county page from the adjacent list. On each page, you will be able to see and download
-    the files that are available for that county.
+  Townland datasets are provided by county and with multiple levels of precision
+  and accuracy available (see below). Start off by navigating to a county page
+  from the adjacent list. On each page, you will be able to see and download the
+  files that are available for that county.
+</p>
+<h2 class="govuk-heading-l">
+  Using the datasets
+</h2>
+<p class="govuk-body">
+  To use the geoJSON files provided in WME, they can be loaded onto the map
+  using the WME Geometries script provided by Timbones.
 </p>
 <p class="govuk-body">
-    To use the geoJSON files provided in WME, they can be loaded onto the map using the WME Geometries script provided
-    by Timbones.
-    Go to the <a href="/instructions/index.html" class="govuk-link">instructions page</a> to find out more.
+  See
+  <a href="instructions.html" class="govuk-link">
+    Using the townland datasets in WME
+  </a>
+  to find out more.
 </p>
 
 <h2 class="govuk-heading-l">
-    <span class="govuk-caption-l">Dataset precision</span>
-    Generalised vs. Ungeneralised
+  More about the datasets
 </h2>
+<h3 class="govuk-heading-m">
+  <span class="govuk-caption-m">Dataset precision</span>
+  Generalised vs. Ungeneralised
+</h3>
 <p class="govuk-body-l">
-    For each level of accuracy for each dataset, there are three precision sets available. Generalised (20m),
-    Generalised (50m) and Ungeneralised.
+  For each level of accuracy for each dataset, there are three precision sets
+  available. Generalised (20m), Generalised (50m) and Ungeneralised.
 </p>
 <p class="govuk-body">
-    <strong>Ungeneralised</strong> datasets are the most precise available. The coordinates of the nodes in the
-    geometry files are as precise as they were originally measured. This usually means that you will see smooth
-    townland boundaries.
+  <strong>Ungeneralised</strong> datasets are the most precise available. The
+  coordinates of the nodes in the geometry files are as precise as they were
+  originally measured. This usually means that you will see smooth townland
+  boundaries.
 </p>
 <p class="govuk-body">
-    <strong>Generalised (20m)</strong> datasets are a middle level of precision. The coordinates of the nodes in the
-    geometry files are within 20m of their actual positions. This usually means that you will see somewhat rough
-    townland boundaries.
+  <strong>Generalised (20m)</strong> datasets are a middle level of precision.
+  The coordinates of the nodes in the geometry files are within 20m of their
+  actual positions. This usually means that you will see somewhat rough townland
+  boundaries.
 </p>
 <p class="govuk-body">
-    <strong>Generalised (50m)</strong> datasets are the least precise that we provide. The coordinates of the nodes in
-    the geometry files are within 50m of their actual positions. This usually means that you will see rough townland
-    boundaries.
+  <strong>Generalised (50m)</strong> datasets are the least precise that we
+  provide. The coordinates of the nodes in the geometry files are within 50m of
+  their actual positions. This usually means that you will see rough townland
+  boundaries.
 </p>
 
-<h2 class="govuk-heading-l">
-    <span class="govuk-caption-l">Dataset accuracy</span>
-    Full vs. Reduced
-</h2>
+<h3 class="govuk-heading-m">
+  <span class="govuk-caption-m">Dataset accuracy</span>
+  Full vs. Reduced
+</h3>
 <p class="govuk-body-l">
-    For each level of precision for each dataset, there are two accuracy sets. Full and reduced.
+  For each level of precision for each dataset, there are two accuracy sets.
+  Full and reduced.
 </p>
 <p class="govuk-body">
-    <strong>Full</strong> datasets are the highest precision available. They achieve high precision by storing more
-    decimal places of the coordinates for nodes in the geometry files.
-    As a result, these files are larger, and place more load on the map editor. For townlands, unless they are
-    particularly dense in a region, reduced datasets are acceptable to use.
+  <strong>Full</strong> datasets are the highest precision available. They
+  achieve high precision by storing more decimal places of the coordinates for
+  nodes in the geometry files. As a result, these files are larger, and place
+  more load on the map editor. For townlands, unless they are particularly dense
+  in a region, reduced datasets are acceptable to use.
 </p>
 <p class="govuk-body">
-    <strong>Reduced</strong> datasets have improved file size and performance in the editor at the expense of some of
-    the data's accuracy. They achieve this by storing fewer deciaml places of
-    the coordinates for nodes in the geometry files. These files are usually acceptable to use when it comes to adding
-    townland boundary information to the map.
+  <strong>Reduced</strong> datasets have improved file size and performance in
+  the editor at the expense of some of the data's accuracy. They achieve this by
+  storing fewer deciaml places of the coordinates for nodes in the geometry
+  files. These files are usually acceptable to use when it comes to adding
+  townland boundary information to the map.
 </p>

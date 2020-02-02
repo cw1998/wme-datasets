@@ -1,7 +1,5 @@
 navigation:
-    - title: Home
-      url: /
-    - title: Resources
-      url: /resources.html
-    - title: Instructions
-      url: /instructions/index.html
+  - title: Home
+    url: /
+  - title: Resources
+    url: /resources.html

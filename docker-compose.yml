@@ -1,7 +1,17 @@
 version: "3.3"
 
 services:
-  wme-datasets:
-    build: .
+  sass:
+    image: node:8
+    working_dir: /workdir
+    volumes:
+      - ./:/workdir
+    command: bash -c "npm install && node_modules/.bin/gulp watch"
+  jekyll:
+    image: ruby
+    working_dir: /app
+    volumes:
+      - ./:/app
     ports:
-      - 80:80
+      - 4000:4000
+    command: bash -c "bundle install && /app/generate_county_collection.sh && jekyll serve --host=0.0.0.0"
